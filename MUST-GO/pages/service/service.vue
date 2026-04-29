@@ -6,7 +6,10 @@
         <text class="title text-main font-bold">在线客服</text>
         <text class="desc text-sub">服务时间: 08:00 - 22:00</text>
       </view>
-      <button class="modern-btn chat-btn" @click="goOnlineSupport">联系人工</button>
+      <view class="btn-group">
+        <button class="modern-btn ai-btn" @click="goAIChat">AI 问答</button>
+        <button class="modern-btn chat-btn" @click="goOnlineSupport">联系人工</button>
+      </view>
     </view>
 
     <view class="faq-section modern-card">
@@ -30,7 +33,9 @@
 
 <script setup>
 const goOnlineSupport = () => {
-  // 复用现有的聊天页面作为人工客服的模拟
+  uni.navigateTo({ url: '/pages/chat/chat?target=kefu' })
+}
+const goAIChat = () => {
   uni.navigateTo({ url: '/pages/chat/chat?target=kefu' })
 }
 </script>
@@ -41,7 +46,9 @@ const goOnlineSupport = () => {
 .contact-info { flex: 1; margin-left: 30rpx; display: flex; flex-direction: column; gap: 10rpx; }
 .title { font-size: 32rpx; }
 .desc { font-size: 24rpx; }
-.chat-btn { margin: 0; font-size: 26rpx; height: 60rpx; line-height: 60rpx; width: 160rpx; }
+.btn-group { display: flex; gap: 16rpx; }
+.ai-btn   { margin: 0; font-size: 26rpx; height: 60rpx; line-height: 60rpx; width: 140rpx; background: #10b981; }
+.chat-btn { margin: 0; font-size: 26rpx; height: 60rpx; line-height: 60rpx; width: 140rpx; }
 
 .faq-section { padding: 0; }
 .faq-header { padding: 30rpx; }
